@@ -21,7 +21,7 @@ public class Main {
 		Map<String, MetaData> metadataMap = new HashMap<String, MetaData>();
 		metadataMap.put("collateralId", new MetaData("collateralId", "NUMBER", 3));
 		metadataMap.put("lob", new MetaData("lob", "VARCHAR", 60));
-		metadataMap.put("createdDate", new MetaData("createdDate", "TIMESTAMP", 20));
+		metadataMap.put("createdDate", new MetaData("createdDate", "TIMESTAMP", 10));
 		metadataMap.put("updatedDate", new MetaData("updatedDate", "DATE", 6));
 
 		Map<String, String> metadataJson = new HashMap<String, String>();
@@ -39,14 +39,13 @@ public class Main {
 			} else {
 				System.out.println("the data type of this value  :" + metadataJson.get(metaData.key) + " is invalid ");
 			}
-			if (CheckDataType.checkDataType(metadataJson.get(metaData.key)).equalsIgnoreCase("VARCHAR")
-					|| CheckDataType.checkDataType(metadataJson.get(metaData.key)).equalsIgnoreCase("NUMBER")) {
+		//	if (CheckDataType.checkDataType(metadataJson.get(metaData.key)).equalsIgnoreCase("VARCHAR")|| CheckDataType.checkDataType(metadataJson.get(metaData.key)).equalsIgnoreCase("NUMBER")) {
 				if (metadataJson.get(metaData.key).length() <= metaData.getLength()) {
 					System.out.println("the length of this value  :" + metadataJson.get(metaData.key) + " is valid ");
 				} else {
 					System.out.println(" the length of this value  :" + metadataJson.get(metaData.key) + " is invalid ");
 				}
 			}
-		}
+		//}
 	}
 }
