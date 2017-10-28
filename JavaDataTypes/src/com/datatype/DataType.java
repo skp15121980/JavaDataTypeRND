@@ -35,19 +35,18 @@ public class DataType {
 	        {
 	            Date d = format.parse(correctDate);
 	            isPassed = (correctDate.equals(new SimpleDateFormat(sdf).format(d))) ? true : false;
-	            System.out.println("In = " + correctDate + "; Out = " 
+	         /*   System.out.println("In = " + correctDate + "; Out = " 
 	                    + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(d) + " equals = " 
-	                    + (correctDate.equals(new SimpleDateFormat(sdf).format(d))));
+	                    + (correctDate.equals(new SimpleDateFormat(sdf).format(d))));*/
 	            // check that are date is less than current
 	            if (!isPassed || d.after(new Date())) {
-	                System.out.println(new SimpleDateFormat(sdf).format(d) + " is after current day " 
-	                        + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+	                //System.out.println(new SimpleDateFormat(sdf).format(d) + " is after current day "  + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 	                isPassed = false;
 	            } else {
 	                isPassed = true;
 	            }
 	        } catch (ParseException e) {
-	            System.out.println(correctDate + " Exception! " + e.getMessage());
+	          //  System.out.println(correctDate + " Exception! " + e.getMessage());
 	            isPassed = false;
 	        }
 	    } else {
@@ -64,7 +63,7 @@ public class DataType {
 	    String correctDate = "";
 	    StringTokenizer stringTokens = new StringTokenizer(stringToValidate, "-" + " " + ":", false);
 	    List<String> tokens = new ArrayList<>();
-	    System.out.println("Inside of recognizer");
+	  //  System.out.println("Inside of recognizer");
 	    while (stringTokens.hasMoreTokens()) {
 	        String token = stringTokens.nextToken();
 	        tokens.add(token);
@@ -133,11 +132,11 @@ public class DataType {
 
 			//if not valid, it will throw ParseException
 			Date date = sdf.parse(dateToValidate);
-			System.out.println(date);
+			//System.out.println(date);
 
 		} catch (ParseException e) {
 
-			e.printStackTrace();
+			//e.printStackTrace();
 			return false;
 		}
 
