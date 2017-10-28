@@ -24,7 +24,7 @@ public class Main {
 		metadataMap.put("createdDate", new MetaData("createdDate", "TIMESTAMP", 10));
 		metadataMap.put("updatedDate", new MetaData("updatedDate", "DATE", 6));
 
-		Map<String, String> metadataJson = new HashMap<String, String>();
+		Map<String, Object> metadataJson = new HashMap<String, Object>();
 		metadataJson.put("collateralId", "121211");
 		metadataJson.put("lob", "lob");
 		metadataJson.put("createdDate", "1990-12-13 12:12:12");
@@ -34,13 +34,14 @@ public class Main {
 
 		for (String metadataJsonkey : metadataJsonkeys) {
 			MetaData metaData = metadataMap.get(metadataJsonkey);
-			if (CheckDataType.checkDataType(metadataJson.get(metaData.key)).equalsIgnoreCase(metaData.getDatatype())) {
+			
+			if (CheckDataType.checkDataType(String.valueOf(metadataJson.get(metaData.key))).equalsIgnoreCase(metaData.getDatatype())) {
 				System.out.println("the data type of this value  :" + metadataJson.get(metaData.key) + " is valid ");
 			} else {
 				System.out.println("the data type of this value  :" + metadataJson.get(metaData.key) + " is invalid ");
 			}
 		//	if (CheckDataType.checkDataType(metadataJson.get(metaData.key)).equalsIgnoreCase("VARCHAR")|| CheckDataType.checkDataType(metadataJson.get(metaData.key)).equalsIgnoreCase("NUMBER")) {
-				if (metadataJson.get(metaData.key).length() <= metaData.getLength()) {
+				if (String.valueOf(metadataJson.get(metaData.key)).length() <= metaData.getLength()) {
 					System.out.println("the length of this value  :" + metadataJson.get(metaData.key) + " is valid ");
 				} else {
 					System.out.println(" the length of this value  :" + metadataJson.get(metaData.key) + " is invalid ");
